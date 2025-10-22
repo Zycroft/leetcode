@@ -2,18 +2,32 @@
 :type height: List[int]
 :rtype: int
 """
-
-maxcolHeight = 0
-maxcolHeight = 0
-maxcolHindx = 0
-
+"""
 for (i, col) in enumerate(height, start=1):
     print(i, col)
     if col > maxcolHeight:
         maxcolHeight = col
         maxcolHindx = i
-        print(maxcolHeight, maxcolHindx)
+        # print(f"maxcolHeight: {maxcolHeight}, maxcolHindx: {maxcolHindx}")
 
-    for i in range(maxcolHindx, 1, -1):
-        print(height[i])
-        # print(i)
+for i in range(maxcolHindx, 0, -1):
+    print(f"index i: {i}, height[{i}]: {height[i]}")
+    # print(i)
+    """
+
+height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+ans = 0
+l = 0
+r = len(height) - 1
+maxL = height[l]
+maxR = height[r]
+
+while l < r:
+    if maxL < maxR:
+        ans += maxL - height[l]
+        l += 1
+        maxL = max(maxL, height[l])
+    else:
+        ans += maxR - height[r]
+        r -= 1
+        maxR = max(maxR, height[r])
