@@ -27,7 +27,10 @@ while l < r:
         ans += maxL - height[l]
         l += 1
         maxL = max(maxL, height[l])
+        print(f"Left l: {l}, maxL: {maxL}, height[l]: {height[l]}, ans: {ans}")
     else:
         ans += maxR - height[r]
         r -= 1
         maxR = max(maxR, height[r])
+        print(
+            f"Right r: {r}, maxR: {maxR}, height[r]: {height[r]}, ans: {ans}")
